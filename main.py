@@ -4,12 +4,6 @@ import os
 
 def main():
 
-    # jesli nie istnieje klucz do szyfrowania to nalezy go utworzyc
-    is_exist_encryption_key = os.path.isfile('filekey.key')
-
-    if not is_exist_encryption_key:
-        generate_encryption_key()
-
     # pobranie nazwy pliku
     file_name = input("Podaj nazwe pliku \n")
 
@@ -20,6 +14,12 @@ def main():
     if not is_exist_file_name:
         print("Plik nie istnieje")
         return
+
+    # jesli nie istnieje klucz do szyfrowania to nalezy go utworzyc
+    is_exist_encryption_key = os.path.isfile('filekey.key')
+
+    if not is_exist_encryption_key:
+        generate_encryption_key()
 
     # rodzaj akcji szyfrowanie / deszyfrowanie
     action = get_action(file_name)
